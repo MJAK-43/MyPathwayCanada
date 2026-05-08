@@ -1,0 +1,32 @@
+RewriteEngine On
+RewriteBase /inovixora/MyPathwayCanada/
+
+# Redirect public .php requests to clean URLs.
+RewriteCond %{THE_REQUEST} \s/+([^.]+)\.php[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Remove trailing slash from non-directories.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} .+/$
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Block direct access to internal include/config files.
+RewriteRule ^(includes|lang|blog-data|design-system)/ - [F,L]
+
+# Public language switch endpoint.
+RewriteRule ^language/switch$ api/set-language.php [L,QSA]
+
+# Blog article routes.
+RewriteRule ^blog/([a-zA-Z0-9-]+)$ article.php?slug=$1 [L,QSA]
+
+# Static page routes without .php extension.
+RewriteRule ^about$ about.php [L,QSA]
+RewriteRule ^pathways$ pathways.php [L,QSA]
+RewriteRule ^blog$ blog.php [L,QSA]
+RewriteRule ^faq$ faq.php [L,QSA]
+RewriteRule ^contact$ contact.php [L,QSA]
+RewriteRule ^start-here$ start-here.php [L,QSA]
+RewriteRule ^resources$ resources.php [L,QSA]
+
+# Home.
+RewriteRule ^$ index.php [L]

@@ -1,0 +1,60 @@
+.site-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: min(100% - 1.5rem, var(--size-container-lg));
+    margin-inline: auto;
+}
+
+.container--xs {
+    width: min(100% - 1.5rem, var(--size-container-xs));
+}
+
+.container--sm {
+    width: min(100% - 1.5rem, var(--size-container-sm));
+}
+
+.container--md {
+    width: min(100% - 1.5rem, var(--size-container-md));
+}
+
+.container--xl {
+    width: min(100% - 1.5rem, var(--size-container-xl));
+}
+
+.container--reading {
+    width: min(100% - 1.5rem, var(--size-reading));
+}
+
+.main {
+    flex: 1;
+}
+
+.page-hero {
+    padding: var(--space-11) 0 var(--space-10);
+}
+
+.page-grid,
+.grid-2,
+.grid-3,
+.grid-4 {
+    display: grid;
+    gap: var(--space-5);
+}
+
+.content-panel {
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.site-footer {
+    margin-top: auto;
+    padding: 0 0 var(--space-7);
+    background: linear-gradient(180deg, var(--color-surface-dark) 0%, #0e1d33 100%);
+    color: rgba(255, 255, 255, 0.84);
+}
